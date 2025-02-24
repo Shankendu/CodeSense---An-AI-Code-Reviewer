@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme{
+    --color-bg-primary-dark:#1B1F38;
+    --color-bg-secondary-dark:#242A44;
+    --color-bg-tertiary-dark:#2E3658;
+    --color-text-primary-dark:#E1E6F6;
+    --color-text-secondary-dark:#B0B8D9;
+    --color-text-tertiary-dark:#949DC5;
+    --color-button-dark:#FF7B54;
+    --color-button-hover-dark:#E66A45;
+    --color-button-shadow-dark:rgba(255, 124, 84, 0.3);
+    --color-border-dark:#28304E;
+    --color-border-secondary-dark:#3B456A;
+    --color-border-tertiary-dark:#48537D;
+    --color-bg-primary-light:#F5F3FF;
+    --color-bg-secondary-light:#E1DEF8;
+    --color-bg-tertiary-light:#D1CAF0;
+    --color-text-primary-light:#312C51;
+    --color-text-secondary-light:#4A437B;
+    --color-text-tertiary-light:#635E9E;
+    --color-button-light:#FF7B54;
+    --color-button-hover-light:#E66A45;
+    --color-button-shadow-light:rgba(255, 124, 84, 0.3);
+    --color-border-light:#D8D3F2;
+    --color-border-secondary-light:#C5BFE6;
+    --color-border-tertiary-light:#B2ABD8;
+   --font-spacegrotesk:'Space Grotesk', serif;
+   --font-roboto:'Roboto', serif;
+}

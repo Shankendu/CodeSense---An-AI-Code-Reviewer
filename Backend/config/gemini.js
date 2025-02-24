@@ -80,7 +80,7 @@ Here’s a solid system instruction for your AI code reviewer:
 
 const reviewCode = async (code) => {
   const response = await model.generateContent(code);
-  return response.response.text();
+  return response?.response?.text();
 };
 
 export default reviewCode;

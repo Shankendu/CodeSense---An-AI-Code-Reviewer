@@ -130,3 +130,54 @@ export const getUserData = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
+//Get User History
+export const getUserHistory = async (req, res) => {
+  try {
+    //Gathering userId from req.body
+    const { userId } = req.body;
+
+    //Checking if userId exists
+    if(!userId) {
+      return res.json({ success: false, message: "User not logged in" });
+    }
+
+    //Fetching user data
+    const user = await userModel.findById(userId);
+    if(!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    //Returning user history
+    return res.json({ success: true, history: user.history });
+  } catch (error) {
+    
+  }
+}
+
+//Save user history
+export const saveUserHistory = async (req, res) => {
+  try {
+
+    //Gathering userId, code, response from req.body
+    const { userId, code, response } = req.body;
+
+    //Checking if details are missing
+    if(!userId || !code || !response) {
+      return res.json({ success: false, message: "Missing details" });
+    }
+
+    //Fetching user data
+    const user = await userModel.findById(userId);
+    if(!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    //Saving user history
+    user.history.push({ code, response });
+    await user.save();
+    return res.json({ success: true, message: "History saved successfully" });
+  } catch (error) {
+    
+  }
+}

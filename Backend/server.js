@@ -11,11 +11,11 @@ const app = express(); //Creating express app
 // dotenv.config(); //Loading environment variables
 connectDb(); //Connecting to database
 
-
+const FRONTEND_URL = "http://localhost:5173" || process.env.FRONTEND_URL;
 
 //Middlewares
 app.use(express.json()); //Parsing json
-app.use(cors({ credentials: true, origin: "http://localhost:5173"}));         //Enabling cors
+app.use(cors({ credentials: true, origin: FRONTEND_URL}));         //Enabling cors
 app.use(cookieParser()); //Parsing cookies
 
 //Routes

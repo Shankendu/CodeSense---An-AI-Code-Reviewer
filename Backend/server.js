@@ -15,7 +15,7 @@ connectDb(); //Connecting to database
 
 //Middlewares
 app.use(express.json()); //Parsing json
-app.use(cors());         //Enabling cors
+app.use(cors({ credentials: true, origin: "http://localhost:5173"}));         //Enabling cors
 app.use(cookieParser()); //Parsing cookies
 
 //Routes

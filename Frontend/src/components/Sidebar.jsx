@@ -113,7 +113,7 @@ const Sidebar = ({ setCode, setResponse }) => {
                   </p>
                   <img
                     title="Delete"
-                    className="cursor-pointer size-3 sm:size-4 opacity-0 group-hover:opacity-100"
+                    className="cursor-pointer size-3 sm:size-4 opacity-0 opacity-100 sm:group-hover:opacity-100"
                     onClick={() => deleteHistory(userData._id, item._id)}
                     src={assets.deletesvg}
                     alt="delete"

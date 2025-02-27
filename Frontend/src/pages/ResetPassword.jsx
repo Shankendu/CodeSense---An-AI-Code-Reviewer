@@ -9,6 +9,7 @@ const ResetPassword = () => {
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const [view, setView] = useState(false);
   axios.defaults.baseURL = backendURL;
   axios.defaults.withCredentials = true;
 
@@ -111,21 +112,37 @@ const ResetPassword = () => {
           >
             {/* password */}
             <div className="mb-3 w-full text-xs sm:text-base md:w-[75%] group">
-              <section className="px-5 w-full flex gap-4 justify-start">
-                <img
-                  src={darkMode ? assets.email_dark : assets.email}
-                  alt="email"
-                />
-                <input
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  className="w-full py-2 placeholder:text-text-tertiary-light dark:placeholder:text-text-tertiary-dark outline-none"
-                  type="password"
-                  placeholder="Password"
-                  value={newPassword}
-                />
-              </section>
-              <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent dark:via-text-primary-dark via-text-primary-light to-transparent group-focus-within:via-button-dark"></div>
-            </div>
+            <section className="px-5 w-full flex gap-4 justify-start">
+              <img
+                src={darkMode ? assets.password_dark : assets.password}
+                alt="password"
+              />
+              <input
+                onChange={(e) =>
+                  setNewPassword(e.target.value)
+                }
+                className="w-full py-2 placeholder:text-text-tertiary-light dark:placeholder:text-text-tertiary-dark outline-none "
+                type={view ? "text" : "password"}
+                placeholder="Password"
+                value={newPassword}
+              />
+              <img
+                onClick={() => setView(!view)}
+                className="cursor-pointer"
+                src={
+                  view
+                    ? darkMode
+                      ? assets.hide_dark
+                      : assets.hide
+                    : darkMode
+                    ? assets.view_dark
+                    : assets.view
+                }
+                alt="view"
+              />
+            </section>
+            <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent dark:via-text-primary-dark via-text-primary-light to-transparent group-focus-within:via-button-dark"></div>
+          </div>
             {/* Submit */}
             <button
               className="w-full text-xs sm:text-sm md:w-[75%] py-2 bg-linear-[144deg,#D1CAF0,#9F8BFF_50%,#7FC8F8] dark:bg-linear-[144deg,#5DC1B9,#2E3658_50%,#6D5BFF] rounded-full dark:text-text-primary-dark text-text-primary-light cursor-pointer"

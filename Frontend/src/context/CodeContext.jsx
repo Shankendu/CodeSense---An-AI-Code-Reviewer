@@ -35,7 +35,6 @@ if (!darkMode) {
 const getUserData = async () => {
     try {
         let {data} = await axios.get(backendURL + "/auth/user-data");
-        console.log(data);
         
         if(data.success){
             setIsLoggedIn(true);

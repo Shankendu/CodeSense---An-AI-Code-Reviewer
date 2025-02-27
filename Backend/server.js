@@ -11,7 +11,7 @@ const app = express(); //Creating express app
 // dotenv.config(); //Loading environment variables
 connectDb(); //Connecting to database
 
-const FRONTEND_URL = "http://localhost:5173" || process.env.FRONTEND_URL;
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
 //Middlewares
 app.use(express.json()); //Parsing json

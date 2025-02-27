@@ -36,8 +36,6 @@ const Review = () => {
      toast.error(error.message);
     } finally {
       setLoading(false);
-      console.log(code, response);
-      
     }
   };
 

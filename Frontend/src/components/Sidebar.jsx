@@ -16,6 +16,7 @@ const Sidebar = ({ setCode, setResponse }) => {
     navigate,
     history,
     setHistory,
+    setViewSidebar
   } = useContext(CodeContext);
   let date = new Date();
   let hour = date.getHours();
@@ -104,6 +105,7 @@ const Sidebar = ({ setCode, setResponse }) => {
                     onClick={() => {
                       setCode(item.code);
                       setResponse(item.response);
+                      setViewSidebar(true);
                     }}
                   >
                     {index + 1}.{" "}
@@ -113,7 +115,7 @@ const Sidebar = ({ setCode, setResponse }) => {
                   </p>
                   <img
                     title="Delete"
-                    className="cursor-pointer size-3 sm:size-4 opacity-0 opacity-100 sm:group-hover:opacity-100"
+                    className="cursor-pointer size-3 sm:size-4 sm:opacity-0 opacity-100 sm:group-hover:opacity-100"
                     onClick={() => deleteHistory(userData._id, item._id)}
                     src={assets.deletesvg}
                     alt="delete"
